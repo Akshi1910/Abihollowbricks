@@ -1,0 +1,36 @@
+.pageWrapper {
+    display: flex;
+  }
+  
+  .container {
+    flex: 1;
+    padding: 20px;
+  }
+  
+  .heading {
+    font-size: 24px;
+    margin-bottom: 20px;
+  }
+  
+  .noDeliveries {
+    text-align: center;
+    font-size: 18px;
+    color: #888;
+  }
+  
+  .deliveryTable {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  .deliveryTable th,
+  .deliveryTable td {
+    border: 1px solid #ccc;
+    padding: 10px;
+    text-align: center;
+  }
+  
+  .deliveryTable th {
+    background-color: #f0f0f0;
+  }
+  

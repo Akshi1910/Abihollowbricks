@@ -1,0 +1,78 @@
+/* Services Page Container */
+.servicesContainer {
+    text-align: center;
+    padding: 50px;
+    background-color: #f9f9f9;
+  }
+  
+  /* Title */
+  .title {
+    font-size: 36px;
+    font-weight: bold;
+    color: #4A1F6B;
+    margin-bottom: 10px;
+  }
+  
+  /* Subtitle */
+  .subtitle {
+    font-size: 18px;
+    color: #666;
+    margin-bottom: 30px;
+  }
+  
+  /* Grid Layout for Services */
+  .servicesGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    justify-content: center;
+    margin-top: 20px;
+  }
+  
+  /* Service Card */
+  .card {
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    transition: transform 0.3s, box-shadow 0.3s;
+  }
+  
+  .card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+  }
+  
+  /* Service Image */
+  .cardImg {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+  }
+  
+  /* Card Body */
+  .cardBody {
+    padding: 15px;
+  }
+  
+  /* Card Title */
+  .cardTitle {
+    font-size: 20px;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 10px;
+  }
+  
+  /* Card Description */
+  .cardDesc {
+    font-size: 16px;
+    color: #555;
+  }
+  
+  /* Responsive Design */
+  @media screen and (max-width: 768px) {
+    .servicesGrid {
+      grid-template-columns: 1fr;
+    }
+  }
+  

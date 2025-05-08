@@ -1,0 +1,153 @@
+/* Container */
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: left;
+    padding: 50px;
+    max-width: 1200px;
+    margin: auto;
+    
+}
+
+/* Layout */
+.flex-row {
+    display: flex;
+    flex-direction: row;
+    gap: 30px;
+    
+}
+
+/* Left Section: Image Gallery */
+.imageGallery {
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+}
+
+/* Thumbnail Images */
+.thumbnailContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    
+}
+
+.thumbnail {
+    width: 60px;
+    height: 60px;
+    border: 2px solid #ddd;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: border-color 0.3s;
+}
+
+.thumbnail:hover,
+.selectedThumbnail {
+    border-color: #4A1F6B;
+}
+
+/* Main Image */
+.mainImage {
+    width: 350px;
+    height: 250px;
+    border-radius: 10px;
+    border: 3px solid #ccc;
+}
+
+/* Right Section: Product Details */
+.details {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    
+}
+
+/* Title */
+.productTitle {
+    font-size: 28px;
+    font-weight: bold;
+}
+
+/* Info Section */
+.productInfo {
+    font-size: 14px;
+    color: #666;
+    margin-top: 5px;
+    
+}
+
+/* Price */
+.productPrice {
+    font-size: 22px;
+    font-weight: bold;
+    color: #4A1F6B;
+    margin-top: 10px;
+}
+
+/* Features */
+.features {
+    margin-top: 20px;
+}
+
+.features h2 {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.features ul {
+    list-style-type: disc;
+    padding-left: 20px;
+    color: #333;
+}
+
+/* Brick Sizes */
+.brickSizes {
+    margin-top: 20px;
+}
+
+.brickSizes h2 {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.sizeOptions {
+    display: flex;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.sizeButton {
+    padding: 10px;
+    border: 2px solid #ddd;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.sizeButton:hover {
+    background: #ddd;
+}
+
+/* Responsive */
+@media screen and (max-width: 768px) {
+    .flex-row {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .imageGallery {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .mainImage {
+        width: 100%;
+        height: auto;
+    }
+
+    .details {
+        text-align: center;
+    }
+}

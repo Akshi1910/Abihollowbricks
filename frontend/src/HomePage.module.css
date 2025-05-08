@@ -1,0 +1,316 @@
+/* Global Settings */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: #EDE9F6;
+  color: #000000;
+  overflow-x: hidden;
+}
+
+/* Container */
+.container {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+
+}
+
+/* Navbar */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 30px;
+  background: #EDE9F6;
+  width: 100%;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.logo {
+  font-size: 24px;
+  font-weight: bold;
+  color: #4A1F6B;
+}
+
+/* Navigation Links */
+.navLinks {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+}
+
+.navLinks li {
+  color: black;
+  font-weight: 600;
+  cursor: pointer;
+  transition: color 0.3s, transform 0.2s;
+}
+
+.navLinks li:hover, .active {
+  color: #4A1F6B;
+  transform: scale(1.1);
+}
+
+/* Hero Section */
+.heroSection {
+  flex: 1;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 50px 30px;
+  width: 100%;
+}
+
+.textContent {
+  max-width: 50%;
+}
+
+.textContent h1 {
+  font-size: 48px;
+  font-weight: bold;
+  color: #000000;
+}
+
+.textContent p {
+  font-size: 18px;
+  max-width: 500px;
+  line-height: 1.6;
+  color: #333333;
+}
+
+/* Contact Button */
+.contactButton {
+  background: #4A1F6B;
+  color: white;
+  padding: 14px 30px;
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.2s;
+}
+
+.contactButton:hover {
+  background: #6B42A0;
+  transform: translateY(-3px);
+}
+
+/* Image Container */
+.imageContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  max-width: 50%;
+}
+
+.heroImage {
+  width: 100%;
+  max-width: 500px;
+  height: auto;
+  border-radius: 50%;
+  border: 5px solid #6B42A0;
+  object-fit: cover;
+}
+
+/* ---------------- Login Button & User Info ---------------- */
+.authButtons {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+/* User Name Display */
+.userName {
+  font-size: 16px;
+  font-weight: bold;
+  color: #4A1F6B;
+  background: rgba(255, 255, 255, 0.8);
+  padding: 8px 12px;
+  border-radius: 20px;
+  box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Login/Logout Button */
+.authButton {
+  background: #6B42A0;
+  color: white;
+  padding: 10px 18px;
+  border: none;
+  border-radius: 25px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.2s;
+}
+
+.authButton:hover {
+  background: #4A1F6B;
+  transform: translateY(-3px);
+}
+
+/* ---------------- Responsive Design ---------------- */
+@media screen and (max-width: 768px) {
+  .heroSection {
+      flex-direction: column;
+      text-align: center;
+      padding: 20px;
+  }
+
+  .textContent, .imageContainer {
+      max-width: 100%;
+  }
+
+  .navLinks {
+      flex-direction: column;
+      gap: 10px;
+  }
+
+  .authButtons {
+      flex-direction: column;
+      gap: 10px;
+  }
+}
+.imageGallery {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px; /* Space between rows */
+  padding: 30px 0;
+}
+
+/* Top image (single, centered) */
+.topImage {
+  display: flex;
+  justify-content: center;
+}
+
+/* Bottom images (two side by side) */
+.bottomImages {
+  display: flex;
+  justify-content: center;
+  gap: 40px; /* Space between two bottom images */
+}
+
+/* Rounded images */
+.heroImage {
+  width: 150px; /* Adjust size */
+  height: 150px;
+  border-radius: 50%; /* Makes it round */
+  border: 4px solid #6B42A0; /* Stylish border */
+  box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.2); /* Soft shadow */
+  transition: transform 0.3s ease-in-out;
+}
+
+.heroImage:hover {
+  transform: scale(1.1); /* Slight zoom effect on hover */
+}
+
+/* Responsive for mobile */
+@media screen and (max-width: 768px) {
+  .bottomImages {
+      flex-direction: column; /* Stack images on mobile */
+      gap: 20px;
+  }
+}
+.imageGallery {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 50%;
+}
+
+/* Top Image */
+.topImage {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+/* Bottom Images - Placed Side by Side */
+.bottomImages {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  max-width: 400px;
+  gap: 10px;
+}
+
+/* Image Styling */
+.heroImage {
+  width: 180px;
+  height: 180px;
+  border-radius: 50%;
+  border: 5px solid #6B42A0;
+  object-fit: cover;
+}
+
+/* Responsive Design */
+@media screen and (max-width: 768px) {
+  .heroSection {
+      flex-direction: column;
+      text-align: center;
+      padding: 20px;
+  }
+
+  .textContent, .imageGallery {
+      max-width: 100%;
+  }
+
+  .bottomImages {
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+  }
+
+  .heroImage {
+      width: 250px;
+      height: 250px;
+  }
+}
+.heroSection {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 100%;
+  padding: 50px;
+}
+
+/* Left Side - Text Content */
+.textContent {
+  flex: 1;
+  padding: 20px;
+  max-width: 50%;
+}
+
+.textContent h1 {
+  font-size: 48px;
+  font-weight: bold;
+  color: #4A1F6B;
+}
+
+.textContent p {
+  font-size: 18px;
+  max-width: 500px;
+  line-height: 1.6;
+  color: #333333;
+}
+
+.contactButton {
+  background: #4A1F6B;
+  color: white;
+  padding: 14px 30px;
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.2s;
+}
+.contactButton:hover {
+  background: #6B42A0;
+  transform: translateY(-3px);
+}

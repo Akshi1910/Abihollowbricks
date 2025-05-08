@@ -1,0 +1,87 @@
+.checkoutContainer {
+    background-color: #EDE9F6;
+    min-height: 100vh;
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .checkoutTitle {
+    font-size: 36px;
+    font-weight: bold;
+    color: #4A1F6B;
+    margin-bottom: 30px;
+  }
+  
+  .checkoutDetails {
+    background-color: white;
+    border-radius: 15px;
+    padding: 30px;
+    width: 100%;
+    max-width: 600px;
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
+  }
+  
+  .detailRow {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 15px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid #EDE9F6;
+  }
+  
+  .detailLabel {
+    font-weight: 600;
+    color: #4A1F6B;
+  }
+  
+  .detailValue {
+    color: #333333;
+  }
+  
+  .totalRow {
+    margin-top: 25px;
+    padding-top: 15px;
+    border-top: 2px solid #6B42A0;
+    font-weight: bold;
+    font-size: 20px;
+  }
+  
+  .proceedButton {
+    background: #4A1F6B;
+    color: white;
+    padding: 16px 40px;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    font-size: 18px;
+    font-weight: bold;
+    margin-top: 30px;
+    transition: background-color 0.3s, transform 0.2s;
+    align-self: center;
+  }
+  
+  .proceedButton:hover {
+    background: #6B42A0;
+    transform: translateY(-3px);
+  }
+  
+  /* Responsive Design */
+  @media screen and (max-width: 768px) {
+    .checkoutContainer {
+      padding: 20px;
+    }
+    
+    .checkoutDetails {
+      padding: 20px;
+    }
+    
+    .detailRow {
+      flex-direction: column;
+    }
+    
+    .detailLabel {
+      margin-bottom: 5px;
+    }
+  }

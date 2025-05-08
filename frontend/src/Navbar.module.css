@@ -1,0 +1,97 @@
+/* Navbar Styles */
+/* Remove underline from links */
+.navLinks li a {
+    text-decoration: none; /* Removes underline */
+    color: black;
+    padding: 5px 10px;
+    transition: color 0.3s, transform 0.2s;
+}
+
+/* Add hover effect */
+.navLinks li a:hover, .active {
+    color: #4A1F6B;
+    transform: scale(1.1);
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 30px;
+    background: #EDE9F6;
+    width: 100%;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.logo {
+    font-size: 24px;
+    font-weight: bold;
+    color: #4A1F6B;
+}
+
+/* Navigation Links */
+.navLinks {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+
+.navLinks li {
+    color: black;
+    font-weight: 600;
+    cursor: pointer;
+    transition: color 0.3s, transform 0.2s;
+}
+
+.navLinks li:hover, .active {
+    color: #4A1F6B;
+    transform: scale(1.1);
+}
+
+/* Authentication Buttons */
+.authButtons {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.userName {
+    font-size: 16px;
+    font-weight: bold;
+    color: #4A1F6B;
+    background: rgba(255, 255, 255, 0.8);
+    padding: 8px 12px;
+    border-radius: 20px;
+    box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.authButton {
+    background: #6B42A0;
+    color: white;
+    padding: 10px 18px;
+    border: none;
+    border-radius: 25px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+.authButton:hover {
+    background: #4A1F6B;
+    transform: translateY(-3px);
+}
+
+/* Responsive Design */
+@media screen and (max-width: 768px) {
+    .navbar {
+        flex-direction: column;
+        gap: 10px;
+        text-align: center;
+    }
+
+    .navLinks {
+        flex-direction: column;
+        gap: 10px;
+    }
+}

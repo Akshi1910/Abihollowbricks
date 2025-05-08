@@ -1,0 +1,162 @@
+/* Full-height layout */
+.mainContent {
+   /* if Sidebar is fixed */
+  padding: 20px;
+  height: 100vh; /* Full viewport height */
+  overflow-y: auto; /* Enable vertical scroll */
+  box-sizing: border-box;
+}
+
+.dashboardContainer {
+  padding: 30px;
+  margin-left: 250px; /* adjust if you have a sidebar */
+  background-color: #f7f7f7;
+  min-height: 100vh;
+}
+
+.heading {
+  font-size: 24px;
+  margin-left: 20px;
+  margin-bottom: 20px;
+  color: #4A1F6B;
+}
+
+.cardsContainer {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-bottom: 30px;
+}
+
+.card {
+  background-color: #f7f2fc;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 0 12px rgba(0, 0, 0, 0.05);
+  width: 220px;
+  text-align: center;
+}
+
+.card h3 {
+  color: #6B42A0;
+  margin-bottom: 10px;
+}
+
+.card p {
+  font-size: 22px;
+  font-weight: bold;
+  color: #333;
+}
+
+.popup {
+  background-color: #e74c3c;
+  color: white;
+  padding: 10px 20px;
+  text-align: center;
+  border-radius: 8px;
+  margin-bottom: 20px;
+}
+
+.stockBreakdown {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.05);
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+.stockBreakdown h3 {
+  margin-bottom: 10px;
+  color: #6B42A0;
+}
+
+.stockBreakdown ul {
+  list-style: none;
+  padding: 0;
+}
+
+.stockBreakdown li {
+  padding: 8px 0;
+  font-size: 16px;
+}
+
+.chartContainer {
+  margin: 30px auto;
+  padding: 20px;
+  background-color: white;
+  border-radius: 12px;
+  box-shadow: 0 0 12px rgba(0, 0, 0, 0.05);
+  width: 500px;
+  height: 300px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.dashboardContainer {
+  padding: 30px;
+  margin-left: 250px;
+  background-color: #f7f7f7;
+  min-height: 100vh;
+}
+
+.heading {
+  font-size: 24px;
+  margin-bottom: 20px;
+  color: #4A1F6B;
+}
+
+.cardsContainer {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-bottom: 30px;
+}
+
+.card {
+  background-color: #f7f2fc;
+  padding: 20px;
+  border-radius: 10px;
+  width: 220px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+.card h3 {
+  color: #6B42A0;
+  margin-bottom: 10px;
+}
+
+.card p {
+  font-size: 22px;
+  font-weight: bold;
+  color: #333;
+}
+
+.popup {
+  background-color: #e74c3c;
+  color: white;
+  padding: 10px 20px;
+  text-align: center;
+  border-radius: 8px;
+  margin-bottom: 20px;
+}
+
+.chartsRow {
+  display: flex;
+  gap: 30px;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: 30px;
+}
+
+.chartContainer {
+  background-color: white;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 0 12px rgba(0, 0, 0, 0.05);
+  width: 500px;
+  height: 300px;
+}

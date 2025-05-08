@@ -1,0 +1,159 @@
+/* Full Screen Layout */
+.orderContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    height: 100vh;
+    width: 100vw;
+    background-color: #EDE9F6;
+    padding: 0;
+    margin: 0;
+}
+
+/* Flex Layout for Full-Screen Two Sections */
+.orderContent {
+    display: flex;
+    justify-content: space-between;
+    align-items: stretch;
+    width: 100%;
+    height: 100%;
+}
+
+/* Left Section - Order Form */
+.orderForm {
+    flex: 1;
+    background: white;
+    padding: 40px;
+    border-radius: 0;
+    box-shadow: none;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Style for Form Inputs */
+.orderForm label {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 5px;
+    text-align: left;
+    width: 100%;
+}
+
+.orderForm input,
+.orderForm textarea,
+.orderForm select {
+    width: 100%;
+    padding: 15px;
+    font-size: 18px;
+    border: 2px solid #ccc;
+    border-radius: 5px;
+    outline: none;
+    margin-bottom: 15px;
+}
+
+/* Right Section - Stone Selection */
+.stoneSelection {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: white;
+    padding: 40px;
+    border-radius: 0;
+    box-shadow: none;
+    width: 100%;
+}
+
+/* Stone Options */
+.stoneOptions {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    align-items: center;
+    width: 100%;
+}
+
+/* Stone Item - Same Line */
+.stoneItem {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    width: 100%;
+    padding: 10px;
+    border: 2px solid #ccc;
+    border-radius: 8px;
+}
+
+/* Stone Image */
+.stoneImage {
+    width: 250px;
+    height: 250px;
+    border-radius: 10px;
+    border: 3px solid #6B42A0;
+}
+
+/* Checkbox + Quantity Input (Same Line) */
+.stoneItem input[type="checkbox"] {
+    transform: scale(1.5);
+    margin-right: 10px;
+}
+
+.quantityInput {
+    width: 100px;
+    padding: 10px;
+    font-size: 18px;
+    border: 2px solid #ccc;
+    border-radius: 5px;
+    text-align: center;
+}
+
+/* Order Button */
+.orderButton {
+    background: #6B42A0;
+    color: white;
+    padding: 16px;
+    border: none;
+    border-radius: 8px;
+    font-size: 20px;
+    cursor: pointer;
+    width: 100%;
+}
+
+.orderButton:hover {
+    background: #4A1F6B;
+}
+
+/* Responsive Design */
+@media screen and (max-width: 768px) {
+    .orderContent {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .orderForm,
+    .stoneSelection {
+        flex: none;
+        width: 100%;
+        padding: 20px;
+    }
+
+    .stoneItem {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .stoneImage {
+        width: 100px;
+        height: 100px;
+    }
+
+    .quantityInput {
+        width: 80px;
+    }
+}
