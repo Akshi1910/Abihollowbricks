@@ -30,7 +30,6 @@ const Delivery = () => {
       await axios.put(`http://localhost:5000/orders/${id}`, {
         deliveryStatus: "Delivered",
       });
-
       // Update frontend state
       setOrders((prev) => prev.filter((order) => order._id !== id));
 
@@ -55,7 +54,7 @@ const Delivery = () => {
 
   {showPopup && <div className={styles.popup}>{popupMessage}</div>}
 
-
+<CalenderComponent/>
   <div className={styles.cardsContainer}>
     {orders.length === 0 ? (
       <p>No accepted orders to deliver.</p>
