@@ -4,6 +4,8 @@ import styles from "./Orders.module.css";
 import Sidebar from "./Sidebar";
 import DashboardCards from "./DashboardCards";
 import Navbar from "./Navbar";
+import { FaCheckCircle } from "react-icons/fa"; // For tick icon
+
 const Orders = () => {
   const [orders, setOrders] = useState([]);
   const [stock, setStock] = useState({});
@@ -94,10 +96,14 @@ const Orders = () => {
     }
   };
 
-  const filteredOrders =
+  const filteredOrders = orders
+  .filter((order) => order.deliveryStatus !== "Cancelled") // exclude cancelled
+  .filter((order) =>
     filterStatus === "All"
-      ? orders
-      : orders.filter((order) => (order.deliveryStatus || "Pending") === filterStatus);
+      ? true
+      : (order.deliveryStatus || "Pending") === filterStatus
+  );
+
 
   return (
     <>
@@ -125,6 +131,7 @@ const Orders = () => {
             <option value="All">All</option>
             <option value="Pending">Pending</option>
             <option value="Accepted">Accepted</option>
+            <option value="Delivered">Delivered</option>
           </select>
         </div>
 
@@ -160,36 +167,37 @@ const Orders = () => {
                       : "Not Set"}
                   </td>
                   <td>{order.deliveryStatus || "Pending"}</td>
-                  <td>
-                    {order.deliveryStatus === "Accepted" ? (
-                      <span className={styles.acceptedText}>Accepted</span>
-                    ) : (
-                      <div className={styles.deliveryControls}>
-                        <input
-                          type="date"
-                          className={styles.dateInput}
-                          onChange={(e) =>
-                            setDeliveryDates({
-                              ...deliveryDates,
-                              [order._id]: e.target.value,
-                            })
-                          }
-                        />
-                        <button
-                          onClick={() =>
-                            handleAccept(
-                              order._id,
-                              order.brickType,
-                              order.brickQuantity
-                            )
-                          }
-                          className={styles.acceptButton}
-                        >
-                          Accept
-                        </button>
-                      </div>
-                    )}
-                  </td>
+                 <td>
+  {order.deliveryStatus === "Accepted" ? (
+    <span className={styles.acceptedText}>Accepted</span>
+  ) : order.deliveryStatus === "Delivered" ? (
+    <FaCheckCircle color="green" size={20} />
+  ) : order.deliveryStatus === "Pending" ? (
+    <div className={styles.deliveryControls}>
+      <input
+        type="date"
+        className={styles.dateInput}
+        onChange={(e) =>
+          setDeliveryDates({
+            ...deliveryDates,
+            [order._id]: e.target.value,
+          })
+        }
+      />
+      <button
+        onClick={() =>
+          handleAccept(order._id, order.brickType, order.brickQuantity)
+        }
+        className={styles.acceptButton}
+      >
+        Accept
+      </button>
+    </div>
+  ) : (
+    <span className={styles.statusText}>Status Not Set</span>
+  )}
+</td>
+
                 </tr>
               ))
             )}

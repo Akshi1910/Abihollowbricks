@@ -14,6 +14,8 @@ import PendingOrders from "./components/PendingOrders";
 import TodaysDeliveries from "./components/TodaysDeliveries";
 import TodaysOrders from "./components/TodaysOrders";
 import CalendarComponent from "./components/CalendarComponent";
+import MarkDelivered from "./components/MarkDeivered";
+import Delivery from "./components/Delivery";
 const App = () => {
   return (
     <>
@@ -30,7 +32,8 @@ const App = () => {
           <Route path="/pendingorders" element={<PendingOrders/>} />
           <Route path="/today-deliveries" element={<TodaysDeliveries/>} />
           <Route path="/today-orders" element={<TodaysOrders/>} />
-          <Route path="/calen" element={<CalendarComponent/>} />
+          <Route path="/mark-delivered" element={<MarkDelivered />} />
+          <Route path="/delivery" element={<Delivery />} />
       </Routes>
     </Router>
     </>

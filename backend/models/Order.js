@@ -3,22 +3,17 @@ const mongoose = require("mongoose");
 const orderSchema = new mongoose.Schema({
   name: String,
   email: String,
+  phone: String,
   address: String,
   brickType: String,
   brickQuantity: Number,
+  paymentMethod: String,  // New field
+  amount: Number,         // New field
   deliveryDate: String,
   deliveryStatus: { type: String, default: "Pending" },
-  selectedStones: [
-    {
-      id: Number,
-      name: String,
-      image: String,
-      quantity: Number,
-    },
-  ],
   orderDate: {
     type: Date,
-    default: Date.now, // Automatically set to current date/time
+    default: Date.now,
   },
 });
 

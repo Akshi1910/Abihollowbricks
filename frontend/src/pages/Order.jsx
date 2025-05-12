@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useAuth0 } from "@auth0/auth0-react";
 import axios from "axios";
 import styles from "./Order.module.css";
@@ -6,19 +6,36 @@ import Navbar from "../Navbar";
 
 export default function Order() {
   const { user, isAuthenticated } = useAuth0();
+
   const [formData, setFormData] = useState({
     name: "",
     address: "",
     brickType: "4 inches",
-    brickQuantity: 1, // New field for brick quantity
+    brickQuantity: 1,
     deliveryDate: "",
     selectedStones: [],
   });
 
-  // Stone options
+  useEffect(() => {
+    if (isAuthenticated && user?.name) {
+      setFormData((prev) => ({
+        ...prev,
+        name: user.name,
+      }));
+    }
+  }, [isAuthenticated, user]);
+
   const stoneOptions = [
-    { id: 1, name: "4 inches", image: "https://www.800benaa.com/application/files/2215/0329/9483/4_inch_Hollow.jpg" },
-    { id: 2, name: "6 inches", image: "https://5.imimg.com/data5/RT/XN/GO/SELLER-33847754/4-inch-hallow-blockkk.jpg" }
+    {
+      id: 1,
+      name: "4 inches",
+      image: "https://www.800benaa.com/application/files/2215/0329/9483/4_inch_Hollow.jpg",
+    },
+    {
+      id: 2,
+      name: "6 inches",
+      image: "https://5.imimg.com/data5/RT/XN/GO/SELLER-33847754/4-inch-hallow-blockkk.jpg",
+    },
   ];
 
   const handleChange = (e) => {
@@ -29,9 +46,15 @@ export default function Order() {
     setFormData((prev) => {
       const existingStone = prev.selectedStones.find((s) => s.id === stone.id);
       if (existingStone) {
-        return { ...prev, selectedStones: prev.selectedStones.filter((s) => s.id !== stone.id) };
+        return {
+          ...prev,
+          selectedStones: prev.selectedStones.filter((s) => s.id !== stone.id),
+        };
       } else {
-        return { ...prev, selectedStones: [...prev.selectedStones, { ...stone, quantity: 1 }] };
+        return {
+          ...prev,
+          selectedStones: [...prev.selectedStones, { ...stone, quantity: 1 }],
+        };
       }
     });
   };
@@ -57,15 +80,13 @@ export default function Order() {
       email: user.email,
       address: formData.address,
       brickType: formData.brickType,
-      brickQuantity: formData.brickQuantity, // Include brick quantity in request
+      brickQuantity: formData.brickQuantity,
       deliveryDate: formData.deliveryDate,
-      selectedStones: formData.selectedStones,
     };
 
     try {
-      await axios.post("http://localhost:5000/orders", orderData);
+      // await axios.post("http://localhost:5000/orders", orderData);
       localStorage.setItem("orderData", JSON.stringify(orderData));
-
       window.location.href = "/checkout";
     } catch (error) {
       alert("Failed to place order.");
@@ -83,7 +104,13 @@ export default function Order() {
           {/* Left Section - Order Form */}
           <form onSubmit={handleSubmit} className={styles.orderForm}>
             <label>Name:</label>
-            <input type="text" name="name" required onChange={handleChange} />
+            <input
+              type="text"
+              name="name"
+              value={formData.name}
+              readOnly
+              className={styles.readOnlyInput}
+            />
 
             <label>Address:</label>
             <textarea name="address" required onChange={handleChange} />
@@ -94,7 +121,7 @@ export default function Order() {
               <option value="6 inches">6 Inches</option>
             </select>
 
-            <label>Quantity of Bricks:</label> {/* New Input for Brick Quantity */}
+            <label>Quantity of Bricks:</label>
             <input
               type="number"
               name="brickQuantity"
@@ -107,7 +134,9 @@ export default function Order() {
             <label>Expected Delivery Date:</label>
             <input type="date" name="deliveryDate" required onChange={handleChange} />
 
-            <button type="submit" className={styles.orderButton}>Place Order</button>
+            <button type="submit" className={styles.orderButton}>
+              Place Order
+            </button>
           </form>
 
           {/* Right Section - Stone Selection */}
@@ -116,12 +145,8 @@ export default function Order() {
             <div className={styles.stoneOptions}>
               {stoneOptions.map((stone) => (
                 <div key={stone.id} className={styles.stoneItem}>
-                  
-                 
-                    <img src={stone.image} alt={stone.name} className={styles.stoneImage} />
-                    <p>{stone.name}</p>
-                
-                  
+                  <img src={stone.image} alt={stone.name} className={styles.stoneImage} />
+                  <p>{stone.name}</p>
                 </div>
               ))}
             </div>

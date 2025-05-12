@@ -1,58 +1,61 @@
 .calendarContainer {
-    padding: 30px;
-    margin-left: 250px; /* Same as dashboard sidebar */
-    background-color: #f7f7f7;
-    min-height: 100vh;
-    box-sizing: border-box;
-  }
-  
-  .calendarBox {
-    background-color: white;
-    border-radius: 12px;
-    box-shadow: 0 0 12px rgba(0, 0, 0, 0.05);
-    padding: 20px;
-    max-width: 1000px;
-    margin: 0 auto;
-  }
-  
-  /* Override FullCalendar styles (optional enhancements) */
-  .fc-toolbar-title {
-    color: #4A1F6B;
-    font-size: 22px;
-    font-weight: 600;
-  }
-  
-  .fc-button {
-    background-color: #6B42A0;
-    border: none;
-    color: white;
-    padding: 6px 12px;
-    border-radius: 6px;
-  }
-  
-  .fc-button:hover {
-    background-color: #573187;
-  }
-  
-  .fc-daygrid-event {
-    background-color: #f7f2fc;
-    color: #6B42A0;
-    border: none;
-    padding: 2px 4px;
-    border-radius: 4px;
-    font-size: 14px;
-  }
-  
-  .fc .fc-col-header-cell-cushion {
-    color: #4A1F6B;
-    font-weight: 500;
-  }
-  .fc-daygrid-event {
-    background-color: #6B42A0; /* Custom purple */
-    color: #fff;
-    border: none;
-    border-radius: 6px;
-    padding: 4px 6px;
-    font-size: 14px;
-  }
-  
+  padding: 30px;
+  margin-left: 20px; /* Adjust sidebar width */
+  background-color: #f7f7f7;
+  min-height: 100vh;
+  box-sizing: border-box;
+  overflow-y: auto; /* Ensure the parent allows scroll if necessary */
+}
+
+.calendarBox {
+  background-color: white;
+  border-radius: 12px;
+  box-shadow: 0 0 12px rgba(0, 0, 0, 0.05);
+  padding: 20px;
+  max-width: 1000px;
+  margin: 0 auto;
+  overflow-y: auto; /* Enable vertical scrolling */
+  height: 80vh; /* Set a fixed height for the calendar box */
+}
+
+
+/* FullCalendar toolbar title */
+.fc-toolbar-title {
+  color: #4A1F6B;
+  font-size: 22px;
+  font-weight: 600;
+}
+
+/* FullCalendar buttons */
+.fc-button {
+  background-color: #6B42A0;
+  border: none;
+  color: white;
+  padding: 6px 12px;
+  border-radius: 6px;
+  font-weight: 500;
+  transition: background-color 0.3s ease;
+}
+
+.fc-button:hover {
+  background-color: #573187;
+}
+
+/* Event badge in the calendar */
+.fc-daygrid-event {
+  background-color: #6B42A0;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  padding: 4px 6px;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+/* Day header styling */
+.fc .fc-col-header-cell-cushion {
+  color: #4A1F6B;
+  font-weight: 500;
+  padding: 8px 0;
+  display: inline-block;
+}

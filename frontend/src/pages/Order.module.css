@@ -157,3 +157,8 @@
         width: 80px;
     }
 }
+.readOnlyInput {
+  background-color: #f5f5f5;
+  border: 1px solid #ccc;
+  cursor: not-allowed;
+}

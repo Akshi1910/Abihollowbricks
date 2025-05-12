@@ -30,7 +30,7 @@ exports.updateOrder = async (req, res) => {
       { deliveryDate, deliveryStatus },
       { new: true }
     );
-
+  
     if (!order) {
       return res.status(404).json({ error: "Order not found" });
     }

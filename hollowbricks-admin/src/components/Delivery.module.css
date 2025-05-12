@@ -1,0 +1,145 @@
+/* Ensure the delivery container has a constrained height and scrolling */
+.deliveryContainer {
+  padding: 30px;
+  margin-left: 250px; /* Adjust for sidebar */
+  min-height: 100vh;
+  background-color: #f7f7f7;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+/* Make sure the cards container is scrollable */
+.cardsContainer {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 30px;
+  max-height: 60vh; /* Adjust the height to limit overflow */
+  overflow-y: auto; /* Enable vertical scrolling */
+  padding-right: 20px; /* Prevent scrollbar overlap */
+  box-sizing: border-box;
+}
+
+/* Optional: styling for the popup */
+.popup {
+  background-color: #4caf50;
+  color: white;
+  padding: 10px;
+  position: fixed;
+  top: 10%;
+  right: 10%;
+  border-radius: 5px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.mainContent {
+  padding: 20px;
+  height: 100vh;
+  overflow-y: auto;
+  box-sizing: border-box;
+}
+
+.deliveryContainer {
+  padding: 30px;
+  margin-left: 250px; /* Adjust if you have a sidebar */
+  background-color: #f7f7f7;
+  min-height: 100vh;
+}
+
+.heading {
+  font-size: 24px;
+  margin-bottom: 20px;
+  color: #4A1F6B;
+  margin-left: 20px;
+}
+
+.popup {
+  background-color: #e74c3c;
+  color: white;
+  padding: 10px 20px;
+  text-align: center;
+  border-radius: 8px;
+  margin: 0 auto 20px auto;
+  width: fit-content;
+}
+
+.calendarWrapper {
+  background-color: #fff;
+  padding: 20px;
+  margin: 20px auto;
+  border-radius: 12px;
+  box-shadow: 0 0 12px rgba(0, 0, 0, 0.05);
+  width: 90%;
+  max-width: 800px;
+}
+
+.calendarPlaceholder {
+  height: 200px;
+  border: 2px dashed #ccc;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 16px;
+  color: #777;
+}
+
+.cardsContainer {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-bottom: 30px;
+}
+
+.card {
+  background-color: #f7f2fc;
+  padding: 20px;
+  border-radius: 10px;
+  width: 260px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+.card h4 {
+  color: #421d72;
+  margin-bottom: 10px;
+}
+
+.card p {
+  font-size: 18px;
+  color: #333;
+  margin: 5px 0;
+}
+
+.cardButton {
+  background: #803db4;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: bold;
+  margin-top: 15px;
+  border-radius: 6px;
+  transition: background-color 0.3s, transform 0.2s;
+}
+
+.cardButton:hover {
+  background-color: #692fa0;
+  transform: scale(1.02);
+}
+/* Scrollable container for the cards */
+.cardsContainer {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-bottom: 30px;
+  max-height: 70vh; /* Adjust as needed for your layout */
+  overflow-y: auto; /* Enable vertical scrolling */
+  padding-right: 20px; /* Add right padding to prevent the scrollbar from overlapping */
+  box-sizing: border-box;
+}

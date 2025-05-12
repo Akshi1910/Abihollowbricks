@@ -26,8 +26,15 @@ const UserOrders = () => {
 
   const handleCancel = async (id) => {
     try {
-      await axios.delete(`http://localhost:5000/orders/${id}`);
-      setUserOrders((prev) => prev.filter(order => order._id !== id));
+      await axios.put(`http://localhost:5000/orders/${id}`, {
+        deliveryStatus: "Cancelled",
+      });
+
+      setUserOrders((prev) =>
+        prev.map((order) =>
+          order._id === id ? { ...order, deliveryStatus: "Cancelled" } : order
+        )
+      );
     } catch (error) {
       console.error("Error cancelling order", error);
     }
@@ -70,8 +77,10 @@ const UserOrders = () => {
                     {order.deliveryStatus || "Pending"}
                   </td>
                   <td>
-                    {order.deliveryStatus === "Accepted" ? (
-                      <span style={{ color: "gray" }}>Cannot Cancel</span>
+                    {["Accepted", "Delivered", "Cancelled"].includes(order.deliveryStatus) ? (
+                      <span style={{ color: "gray" }}>
+                        {order.deliveryStatus === "Cancelled" ? "Cancelled" : "Cannot Cancel"}
+                      </span>
                     ) : (
                       <button
                         className={styles.cancelButton}

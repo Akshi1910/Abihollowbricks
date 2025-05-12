@@ -11,6 +11,7 @@ const stockRoutes = require("./routes/stock.routes");
 const inventoryRoutes = require("./routes/inventory.route");
 const Order=require("./models/Order");
 const Stock=require("./models/stock.model")
+const payment=require("./routes/payment");
 dotenv.config();
 connectDB();
 
@@ -37,6 +38,7 @@ app.use("/api/auth",authRoutes);
 app.use("/api/users", userRoutes);
 app.use("/api/stock", stockRoutes);
 app.use("/api/inventory", inventoryRoutes);
+app.use("/api/payment",payment);
 // DELETE a user order
 app.delete('/orders/:id', async (req, res) => {
   try {
@@ -94,6 +96,21 @@ const authenticateToken = async (req, res, next) => {
     });
   });
   
+// In your Express backend (Node.js)
+app.put("/orders/:id/deliver", async (req, res) => {
+  try {
+    const updatedOrder = await Order.findByIdAndUpdate(
+      req.params.id,
+      { deliveryStatus: "Delivered" },
+      { new: true }
+    );
+    res.json(updatedOrder);
+  } catch (error) {
+    console.error("Error marking as delivered", error);
+    res.status(500).send("Internal Server Error");
+  }
+});
+
 
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));

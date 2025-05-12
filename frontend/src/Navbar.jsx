@@ -9,6 +9,7 @@ export default function Navbar() {
     <nav className={styles.navbar}>
       <div className={styles.logo}>
         <h1>Abi Hollow Bricks</h1>
+        <p className={styles.para}>Vellakovil Muthur Road</p>
       </div>
 
       <ul className={styles.navLinks}>
