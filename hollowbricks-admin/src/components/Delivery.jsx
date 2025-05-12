@@ -52,7 +52,7 @@ const Delivery = () => {
       <Navbar />
     <div className={styles.deliveryContainer}>
   <h2 className={styles.heading}>Delivery Management</h2>
-<CalendarComponent/>
+
   {showPopup && <div className={styles.popup}>{popupMessage}</div>}
 
 
