@@ -16,7 +16,7 @@ dotenv.config();
 connectDB();
 
 const app = express();
-const allowedOrigins = ["http://localhost:5173", "http://localhost:5174", "https://abihollowbricks.vercel.app"];
+const allowedOrigins = ["http://localhost:5173", "http://localhost:5174", "https://abihollowbricks.vercel.app","https://abihollowbricks-h6wa.vercel.app"];
 
 app.use(cors({
   origin: function (origin, callback) {
