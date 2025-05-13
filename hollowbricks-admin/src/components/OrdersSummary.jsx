@@ -88,26 +88,42 @@ const OrdersSummary = () => {
   const capitalizedFilter = selectedFilter.charAt(0).toUpperCase() + selectedFilter.slice(1);
 
   const downloadCSV = () => {
-    if (orders.length === 0) return;
+  if (orders.length === 0) return;
 
-    const headers = Object.keys(orders[0]);
-    const csvRows = [
-      headers.join(','), // header row
-      ...orders.map(order =>
-        headers.map(header => `"${order[header] ?? ''}"`).join(',')
-      ),
-    ];
-
-    const csvData = csvRows.join('\n');
-    const blob = new Blob([csvData], { type: 'text/csv' });
-    const url = URL.createObjectURL(blob);
-
-    const a = document.createElement('a');
-    a.href = url;
-    a.download = 'orders.csv';
-    a.click();
-    URL.revokeObjectURL(url);
+  // Format dates properly for CSV
+  const formatDateForCSV = (dateString) => {
+    if (!dateString) return '';
+    const date = new Date(dateString);
+    return isNaN(date.getTime()) ? dateString : date.toISOString();
   };
+
+  const headers = Object.keys(orders[0]);
+  const csvRows = [
+    headers.join(','), // header row
+    ...orders.map(order =>
+      headers.map(header => {
+        // Special handling for date fields
+        if (header.toLowerCase().includes('date')) {
+          return `"${formatDateForCSV(order[header])}"`;
+        }
+        // Escape quotes in other fields
+        const value = order[header] ?? '';
+        return `"${value.toString().replace(/"/g, '""')}"`;
+      }).join(',')
+    ),
+  ];
+
+  const csvData = csvRows.join('\n');
+  const blob = new Blob([csvData], { type: 'text/csv;charset=utf-8;' });
+  const url = URL.createObjectURL(blob);
+
+  const a = document.createElement('a');
+  a.href = url;
+  a.download = 'orders.csv';
+  a.click();
+  URL.revokeObjectURL(url);
+};
+
 
   return (
     <>

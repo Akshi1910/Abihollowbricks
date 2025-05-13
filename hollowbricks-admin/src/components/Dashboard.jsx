@@ -5,6 +5,7 @@ import Sidebar from "./Sidebar";
 import { Bar, Doughnut } from "react-chartjs-2";
 import TodaysOrders from "./TodaysOrders";
 import Navbar from "./Navbar";
+
 import {
   Chart as ChartJS,
   CategoryScale,
@@ -33,6 +34,27 @@ const Dashboard = () => {
   const [inventory, setInventory] = useState({});
   const [showPopup, setShowPopup] = useState(false);
   const [popupMessage, setPopupMessage] = useState("");
+const [todaysOrders, setTodaysOrders] = useState([]);
+
+  useEffect(() => {
+    const fetchTodaysOrders = async () => {
+      try {
+        const response = await axios.get("http://localhost:5000/orders");
+        const today = new Date().toISOString().slice(0, 10); // yyyy-mm-dd
+
+        const filteredOrders = response.data.filter((order) => {
+          const orderDate = new Date(order.orderDate).toISOString().slice(0, 10);
+          return orderDate === today;
+        });
+
+        setTodaysOrders(filteredOrders);
+      } catch (error) {
+        console.error("Error fetching today's orders:", error);
+      }
+    };
+
+    fetchTodaysOrders();
+  }, []);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -142,7 +164,35 @@ const Dashboard = () => {
             <p>{lowStockItems}</p>
           </div>
         </div>
-        <TodaysOrders/>
+         <div className={styles.container}>
+                <h2>Today's Orders</h2>
+                {todaysOrders.length === 0 ? (
+                  <p>No orders for today.</p>
+                ) : (
+                  <table className={styles.table}>
+                    <thead>
+                      <tr>
+                        <th>Name</th>
+                        <th>Email</th>
+                        <th>Brick Type</th>
+                        <th>Quantity</th>
+                        <th>Address</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      {todaysOrders.map((order) => (
+                        <tr key={order._id}>
+                          <td>{order.name}</td>
+                          <td>{order.email}</td>
+                          <td>{order.brickType}</td>
+                          <td>{order.brickQuantity}</td>
+                          <td>{order.address}</td>
+                        </tr>
+                      ))}
+                    </tbody>
+                  </table>
+                )}
+              </div>
         <div className={styles.chartsRow}>
           <div className={styles.chartContainer}>
             <Bar data={barChartData} options={barChartOptions} />

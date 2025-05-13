@@ -6,6 +6,8 @@ import { AiOutlineStock } from "react-icons/ai";
 import { MdOutlineInventory } from "react-icons/md";
 import { FaRegUser } from "react-icons/fa";
 import styles from "./Sidebar.module.css";
+import { TbTruckDelivery } from "react-icons/tb";
+import { RiMoneyRupeeCircleLine } from "react-icons/ri";
 
 const Sidebar = () => {
   const location = useLocation();
@@ -15,7 +17,8 @@ const Sidebar = () => {
     { name: "Orders", icon: <MdOutlineFactCheck />, path: "/orders" },
     { name: "Stock", icon: <AiOutlineStock />, path: "/stock" },
     { name: "Inventory", icon: <MdOutlineInventory />, path: "/inventory" },
-    
+    { name: "Sales", icon: <RiMoneyRupeeCircleLine />, path: "/sales" },
+    { name: "Delivery", icon: <TbTruckDelivery />, path: "/delivery" },
   ];
 
   return (

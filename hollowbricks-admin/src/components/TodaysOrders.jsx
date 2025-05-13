@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import styles from "./TodaysOrders.module.css";
 import Navbar from "./Navbar";
-
+import Sidebar from "./Sidebar";
 const TodaysOrders = () => {
   const [todaysOrders, setTodaysOrders] = useState([]);
 
@@ -28,7 +28,8 @@ const TodaysOrders = () => {
 
   return (
     <>
- 
+ <Navbar/>
+ <Sidebar/>
       <div className={styles.container}>
         <h2>Today's Orders</h2>
         {todaysOrders.length === 0 ? (
