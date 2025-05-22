@@ -7,6 +7,8 @@ export default function Checkout() {
   const [rates, setRates] = useState(null);
   const [loading, setLoading] = useState(false);
   const [paymentSuccess, setPaymentSuccess] = useState(false);
+  const BACKEND_URL = "https://abihollowbricks-backend.onrender.com";
+
 const handleCashOnDelivery = async () => {
   setLoading(true);
   try {
@@ -51,7 +53,7 @@ const handleCashOnDelivery = async () => {
     const savedOrder = JSON.parse(localStorage.getItem("orderData"));
     setOrderData(savedOrder);
 
-    axios.get("http://localhost:5000/rates").then((res) => {
+    axios.get(`${BACKEND_URL}/rates`).then((res) => {
       setRates(res.data);
     });
   }, []);
@@ -60,7 +62,7 @@ const handleCashOnDelivery = async () => {
     setLoading(true);
     
     try {
-      const response = await axios.post("http://localhost:5000/api/payment/create-razorpay-order", {
+      const response = await axios.post(`${BACKEND_URL}/api/payment/create-razorpay-order`, {
         amount: Math.round(totalCost * 100), // Convert to paise
         currency: "INR",
         receipt: `order_${Date.now()}`,
@@ -81,7 +83,7 @@ const handleCashOnDelivery = async () => {
         order_id: response.data.id,
         handler: async function(response) {
           // Verify payment on your server
-          const verification = await axios.post("http://localhost:5000/api/payment/verify-payment", {
+          const verification = await axios.post(`${BACKEND_URL}/api/payment/verify-payment`, {
             razorpay_payment_id: response.razorpay_payment_id,
             razorpay_order_id: response.razorpay_order_id,
             razorpay_signature: response.razorpay_signature
@@ -91,7 +93,7 @@ const handleCashOnDelivery = async () => {
             setPaymentSuccess(true);
             localStorage.removeItem("orderData");
             // Send confirmation email or update database
-            await axios.post("http://localhost:5000/api/payment/confirm-order", {
+            await axios.post(`${BACKEND_URL}/api/payment/confirm-order`, {
               orderId: response.razorpay_order_id,
               paymentId: response.razorpay_payment_id,
               amount: totalCost,
