@@ -83,7 +83,7 @@ const [todaysOrders, setTodaysOrders] = useState([]);
 
   const totalOrders = orders.length;
   const pendingDeliveries = orders.filter(
-    (order) => order.deliveryStatus !== "Accepted"
+    (order) => order.deliveryStatus === "Pending"
   ).length;
 
   const stockQty = stock.stockQty || {};
