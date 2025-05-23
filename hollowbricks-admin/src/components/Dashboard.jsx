@@ -81,7 +81,9 @@ const [todaysOrders, setTodaysOrders] = useState([]);
     fetchData();
   }, []);
 
-  const totalOrders = orders.length;
+ const totalOrders = orders.filter(
+  (order) => order.deliveryStatus !== "Cancelled"
+).length;
   const pendingDeliveries = orders.filter(
     (order) => order.deliveryStatus === "Pending"
   ).length;
